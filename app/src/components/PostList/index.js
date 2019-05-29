@@ -62,6 +62,18 @@ class PostList extends Component {
         }
     }
 
+    componentDidUpdate(prevProps) {
+        const { fetchPosts, fetchPostsCategory, match } = this.props
+        const { params } = match
+        if (prevProps.match.params !== params) {
+            if (params.category) {
+                fetchPostsCategory(params.category)
+            } else {
+                fetchPosts()
+            }
+        }
+    }
+
     handleDeletePost = (postId) => {
         const { fetchDeletePost } = this.props
         fetchDeletePost(postId)

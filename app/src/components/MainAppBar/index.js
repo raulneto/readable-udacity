@@ -135,7 +135,7 @@ class MainAppBar extends Component {
                     </Typography>
                     {categories.length > 0 &&
                         categories.map(category => (
-                            <Typography onClick={() => fetchPostsCategory(category.name) } key={category.id} variant="subheading" className={classes.padding} color="inherit" >
+                            <Typography onClick={() => fetchPostsCategory(category.name) } key={category.name} variant="subheading" className={classes.padding} color="inherit" >
                                 <Link className={classes.link} to={`/${category.name}`}>{category.name}</Link>
                             </Typography>
                     ))}
